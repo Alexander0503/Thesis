@@ -5,7 +5,7 @@ Sys.setlocale("LC_TIME", "English")
 View(df_monthly_rate)
 
 ###############################################################################################################################
-# Description of the CORARMA options in GLS: 
+# Description of the CORARMA options in GLS function: 
 
 #corAR1	autoregressive process of order 1.
 #corARMA	autoregressive moving average process, with arbitrary orders for the autoregressive and moving average components.
