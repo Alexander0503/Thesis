@@ -1,3 +1,5 @@
+# Createt by Alexander Kagan
+
 Sys.setlocale("LC_TIME", "English")
 
 View(df_monthly_rate)
