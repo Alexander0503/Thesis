@@ -20,15 +20,8 @@ View(df_monthly_rate)
 
 
 #####################################
-dispersion_test(as.integer(df_monthly_rate$acs_rate_male_age_grp_2_65_above)) # p-value 0 not poisson process
-poisson.tests(as.integer(df_monthly_rate$acs_rate_male_age_grp_2_65_above), R=199) # not poison proccss 
-
-library(fitdistrplus) # determine the distrebution of the series
-descdist(as.integer(df_monthly_rate$acs_rate_male_age_grp_2_65_above, discrete = T)) # close to beta and gamma 
-
 # check normal distribution. null hyphotesis - normal distribution. 
-# alternative hyphothesis is not normal distribution. 
-shapiro.test(df_monthly_rate$acs_rate_male_age_grp_2_65_above) # p-value =  p-value = 0.2983, normal distrubution.
+shapiro.test(df_monthly_rate$acs_rate_male_age_grp_2_65_above) # p-value =  
 
 ############################
 # initial plot with ggplot2
@@ -122,7 +115,7 @@ library(tseries)# also for bgt, bds.test and terasvirta
 library(lmtest)
 
 #stationarity test of the series
-adf.test(ACS_rate_males_65_above_ts_all_period) # h1 = stationary. p-value = 0.05707
+adf.test(ACS_rate_males_65_above_ts_all_period) # h1 = stationary. 
 
 #autocorelation test of the series
 bgtest(acs_rate_male_age_grp_2_65_above~time, data = df_monthly_rate, order=6) # H0 = no autocorelation at any order until 12
@@ -131,13 +124,9 @@ bgtest(acs_rate_male_age_grp_2_65_above~time, data = df_monthly_rate, order=6) #
 Box.test(ACS_rate_males_65_above_ts_all_period) # (H0 = no autocorelatione of the series)
 #we have autocorelation of the series. 
 
-# linear test for the series
-terasvirta.test(y=df_monthly_rate$acs_rate_male_age_grp_2_65_above, x=df_monthly_rate$acs_rate_male_age_grp_2_65_above) #H0 = linear, p-value = 2.244e-09, the series is non-linear
-#######################################################################################
-
-####################################
+##################################################################
 # ACS sex difference between the ages 65 and above with 2-y-axis.
-####################################
+##################################################################
 library(scales)
 library(ggplot2)
 library(ggthemes)
@@ -175,7 +164,7 @@ female_males_above_65_2y_plot = ggplot(df_monthly_rate,aes(x=time_by_month)) +
   geom_line(aes(y=acs_rate_male_age_grp_2_65_above * scaleFactor), col="purple2", linewidth=1, linetype = "longdash")+
   geom_point(aes(y=acs_rate_male_age_grp_2_65_above * scaleFactor),shape= 1, color = "purple2", size = 2.9)+
   
-  # left side                                                                             # left side
+                                              # left side                                                                             # left side
   scale_y_continuous(name = "Females ACS rate per 100,000 people/month \n", sec.axis=sec_axis(~./scaleFactor, name ="Males ACS rate per 100,000 people/month\n"))+
   theme(
     axis.title.y.left=element_text(color ="goldenrod"),
