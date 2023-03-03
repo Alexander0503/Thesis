@@ -17,8 +17,7 @@ getwd() # "C:/PROGRAMS/WorkingDir"
 Sys.setlocale("LC_TIME", "English")
 
 #########################
-#By Alexander Kagan.  
-#Kagan.alex23@gmail.com
+#By Alexander Kagan
 ########################### 
 
 # loading the dataset
