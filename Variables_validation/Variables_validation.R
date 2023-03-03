@@ -27,8 +27,6 @@ Sys.setlocale("LC_TIME", "English")
 # Emergency Room dataset upload 
 # this data is the visit to general hospital mosly by the diagnosis of
 # chest pain and acute myocardial infraction in the years 2018-2022. 
-# this data set have 649,019 observations. 
-
 ###################################
 
 View(erdata)
@@ -231,7 +229,7 @@ tab1(general_acs$patient_age)
 
 # institute mbr code. code of the hospital.
 class(erdata$institute_mbr_code)# output: "character"
-count(erdata,"institute_mbr_code") # found 30 hospitals 
+count(erdata,"institute_mbr_code") #
 sum(is.na(erdata$institute_mbr_code))#check Na's - output: zero Na's. 
 tab1(erdata$institute_mbr_code) # see the frequency and also the percentage. 
 tab1(erdata$institute_mbr_code, sort.group = "decreasing", cum.percent = T )
