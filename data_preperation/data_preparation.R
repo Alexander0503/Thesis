@@ -24,7 +24,7 @@ Sys.setlocale("LC_TIME", "English")
 library(readr)
 ## upload the file of ER to the R program and call it erdata
 erdata <- read_delim(
-  "D:/Data/OtemLev_172.172.75.31_step3_V2.0_20221006.csv", 
+  "D:/Data/2022.csv", 
   "|", escape_double = FALSE, trim_ws = TRUE)
 
 ###############################################################
@@ -66,24 +66,6 @@ library(epiDisplay)
 # create column with number of row in order untill this sterp it will helps us identify duplicated, so then we can delete the duplicates. 
 erdata$dub = 1:length(erdata$original_visit_number) 
 
-
-#############################################################################
-#and new variable type I.D and then delete record that not have Israeli I.D
-#############################################################################
-
-# the statstics of the patient id - there is 6720 non israeli ID
-tab1(erdata$patient_id_type, sort.group = "decreasing", cum.percent = T )
-
-# delete records that not include israeli id
-erdata=erdata[!grepl("0|2|3|4|5|8|9",erdata$patient_id_type),] #  
-
-tab1(erdata$patient_id_type, sort.group = "decreasing", cum.percent = T ) # have only Israeli id records.
-
-# create column with fixed number of rows 
-erdata$dub = 1:length(erdata$original_visit_number) # now we have 587257rows (for monthly) after we delete the records without Israeli I.D
-
-# from previous data we had at this stage 550220
-
 ###########################################################################################
 # add English description to city code (also include the region description and population)
 ###########################################################################################
@@ -99,7 +81,7 @@ erdata = plyr::join(x=erdata, y=dim_ciry2, by = "patient_city_code")
 # the join function add dublicates to the data frame. 
 
 # we want to delete the duplicates and keep only unique rows. to keep the data frame complete. we will go by the dub column.
-#erdata = erdata %>% dplyr::distinct(erdata$dub, .keep_all = T) #  we return to 558,892 observation
+#erdata = erdata %>% dplyr::distinct(erdata$dub, .keep_all = T) #
 erdata = erdata %>% dplyr::distinct(dub, .keep_all = T)
 
 
