@@ -4,5 +4,5 @@ Interrupted time series analysis (ITS) was used for method design, and Generaliz
 
 Statistical analyses were performed in R Software. 
 
-These repositories present the R code used for the data preparation, analysis, visualization, and statistical analysis. 
+These repositories present the R code used for the data preparation, statistical analysis, and for visualization. 
 The raw datasets are confidentiality and security protected and do not exist here. 
