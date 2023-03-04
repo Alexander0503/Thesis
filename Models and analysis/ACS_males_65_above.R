@@ -164,7 +164,7 @@ female_males_above_65_2y_plot = ggplot(df_monthly_rate,aes(x=time_by_month)) +
   geom_line(aes(y=acs_rate_male_age_grp_2_65_above * scaleFactor), col="purple2", linewidth=1, linetype = "longdash")+
   geom_point(aes(y=acs_rate_male_age_grp_2_65_above * scaleFactor),shape= 1, color = "purple2", size = 2.9)+
   
-                                              # left side                                                                             # left side
+                                              # left side                                                                             # right side
   scale_y_continuous(name = "Females ACS rate per 100,000 people/month \n", sec.axis=sec_axis(~./scaleFactor, name ="Males ACS rate per 100,000 people/month\n"))+
   theme(
     axis.title.y.left=element_text(color ="goldenrod"),
