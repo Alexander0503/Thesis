@@ -286,10 +286,10 @@ anova(model_acs_male_65_above_final_p13q0, model_acs_male_65_above_final_p1q0) #
 #compare other models 
 model_acs_male_65_above_final_p0q0 = gls(data = df_monthly_rate, 
                                          acs_rate_male_age_grp_2_65_above~time + level_first +trend_first + level_second + trend_second + harmonic(month_number,2,12), #  
-                                         correlation=NULL, method = "ML")
+                                         correlation = corARMA(p=2,q=1, method = "ML")
 
 
-summary(model_acs_male_65_above_final_p0q0) #   330.9065 
+summary(model_acs_male_65_above_final_p0q0) #   410.9065 
 acf(residuals(model_acs_male_65_above_final_p0q0), lag.max = 12) # ignore the first lag, . for MA process  
 pacf(residuals(model_acs_male_65_above_final_p0q0), lag.max = 12) 
 anova(model_acs_male_65_above_final_p1q0, model_acs_male_65_above_final_p0q0)#p-value 0.5541 no significant difference. 
@@ -297,10 +297,11 @@ adf.test(residuals(model_acs_male_65_above_final_p0q0, k=1)) #p-value = 0.05437
 tab_model(model_acs_male_65_above_final_p0q0)
 
 #################################################################################################
+# Final ITS graph
+                                         
 library(ggplot2)
 library(ggthemes)
 library(hrbrthemes)
-
 
 final_plot_males_65_above_p2q0 = ggplot(data = NULL, aes(x,y))+
   
