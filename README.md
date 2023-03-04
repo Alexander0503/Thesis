@@ -8,4 +8,4 @@ The "data_preparation" contains the R code for preparing the cardiac outcomes by
 The "Models and Analysis" folder contains the R code for men 65 and above with acute coronary syndrome. It presents the complete analysis process done only for this cardiac outcome group. This Group was one of 6 total cardiac outcomes included in the complete thesis analysis.
 The analysis contains: fitting the model (seasonality adjusting), testing the models (ACF, PACF, box test, AIC), checking other potential models, building the graphs (seasonality plot, 2-axis graphs, ITS graph with two interruptions), and other statistical analysis.
 
-The raw datasets are confidentiality and security protected and do not exist here. 
+All raw datasets are confidentiality and security protected and do not exist here. 
