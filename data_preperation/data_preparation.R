@@ -30,7 +30,7 @@ erdata <- read_delim(
 ###############################################################
 
 
-# the dataset at the begininig contain 705598 rows and 27 columns. 
+# the dataset at the begininig contain 705,598 rows and 27 columns. 
 
 ###########################
 #Checking the variables and delete unnecessary columns, # because all column is NAs.- Step 1
