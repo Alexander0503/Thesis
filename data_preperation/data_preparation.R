@@ -48,12 +48,12 @@ head(erdata$visit_start_date) # great!
 ######################
 # save terem to terem
 #####################
-terem=erdata[grepl("36701",erdata$institute_mbr_code),] #  delete the rows with the code contain 36701 (terem). now we have 558892 rows.
+terem=erdata[grepl("36701",erdata$institute_mbr_code),] #  delete the rows with the code contain 36701 (terem). 
 
 #######################
 # delete terem
 ######################
-erdata=erdata[!grepl("36701",erdata$institute_mbr_code),] #  delete the rows with the code contain 36701 (terem). now we have 558892 rows.
+erdata=erdata[!grepl("36701",erdata$institute_mbr_code),] #  delete the rows with the code contain 36701 (terem). now we have 558,892 rows.
 
 ######################################################
 # create Dup variable that count the rows we have now
